@@ -1277,6 +1277,8 @@ public enum L10n {
           public static var blue: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.blue") }
           /// Caribbean Green
           public static var caribbeanGreen: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.caribbean_green") }
+          /// Classic
+          public static var classic: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.classic") }
           /// Cornflower Blue
           public static var cornflowerBlue: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.cornflower_blue") }
           /// Crimson
@@ -1289,8 +1291,6 @@ public enum L10n {
           public static var fireOrange: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.fire_orange") }
           /// Green
           public static var green: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.green") }
-          /// Home Assistant Blue
-          public static var haBlue: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.ha_blue") }
           /// Old Beta
           public static var oldBeta: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.old_beta") }
           /// Old Dev
@@ -1303,12 +1303,12 @@ public enum L10n {
           public static var pink: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pink") }
           /// Pride: Bi
           public static var prideBi: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pride_bi") }
-          /// Pride: 8-Color
+          /// Pride: Non Binary
+          public static var prideNonBinary: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pride_non_binary") }
+          /// Pride: Progress
           public static var pridePoc: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pride_poc") }
           /// Pride: Rainbow
           public static var prideRainbow: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pride_rainbow") }
-          /// Pride: Rainbow (Inverted)
-          public static var prideRainbowInvert: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pride_rainbow_invert") }
           /// Pride: Trans
           public static var prideTrans: String { return L10n.tr("Localizable", "settings_details.general.app_icon.enum.pride_trans") }
           /// Purple
@@ -1875,6 +1875,14 @@ public enum L10n {
 
   public enum UrlHandler {
     public enum CallService {
+      public enum Confirm {
+        /// Do you want to call the service %@?
+        public static func message(_ p1: Any) -> String {
+          return L10n.tr("Localizable", "url_handler.call_service.confirm.message", String(describing: p1))
+        }
+        /// Call service?
+        public static var title: String { return L10n.tr("Localizable", "url_handler.call_service.confirm.title") }
+      }
       public enum Error {
         /// An error occurred while attempting to call service %@: %@
         public static func message(_ p1: Any, _ p2: Any) -> String {
@@ -1895,6 +1903,14 @@ public enum L10n {
       public static var actionNotFound: String { return L10n.tr("Localizable", "url_handler.error.action_not_found") }
     }
     public enum FireEvent {
+      public enum Confirm {
+        /// Do you want to fire the event %@?
+        public static func message(_ p1: Any) -> String {
+          return L10n.tr("Localizable", "url_handler.fire_event.confirm.message", String(describing: p1))
+        }
+        /// Fire event?
+        public static var title: String { return L10n.tr("Localizable", "url_handler.fire_event.confirm.title") }
+      }
       public enum Error {
         /// An error occurred while attempting to fire event %@: %@
         public static func message(_ p1: Any, _ p2: Any) -> String {
@@ -1916,7 +1932,23 @@ public enum L10n {
         return L10n.tr("Localizable", "url_handler.no_service.message", String(describing: p1))
       }
     }
+    public enum RenderTemplate {
+      public enum Confirm {
+        /// Do you want to render %@?
+        public static func message(_ p1: Any) -> String {
+          return L10n.tr("Localizable", "url_handler.render_template.confirm.message", String(describing: p1))
+        }
+        /// Render template?
+        public static var title: String { return L10n.tr("Localizable", "url_handler.render_template.confirm.title") }
+      }
+    }
     public enum SendLocation {
+      public enum Confirm {
+        /// Do you want to send your location?
+        public static var message: String { return L10n.tr("Localizable", "url_handler.send_location.confirm.message") }
+        /// Send location?
+        public static var title: String { return L10n.tr("Localizable", "url_handler.send_location.confirm.title") }
+      }
       public enum Error {
         /// An unknown error occurred while attempting to send location: %@
         public static func message(_ p1: Any) -> String {
